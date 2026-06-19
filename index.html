@@ -598,24 +598,36 @@ footer .disc{max-width:60ch;margin:1.2rem auto 0;font-size:.72rem;line-height:1.
 
 <script>
 /* ====== CONFIGURAÇÃO DA HOTMART ======
-   URL do checkout do produto. ?checkoutMode=2 ativa o popup embedado (não redireciona). */
+   URL do checkout do produto. ?checkoutMode=2 ativa o popup embedado. */
 const CHECKOUT_URL = "https://pay.hotmart.com/P106405677Y?checkoutMode=2";
 
-/* Converte cada botão [data-checkout] em botão do widget Hotmart:
-   - aponta href para o checkout
-   - adiciona classes que o widget intercepta (hotmart-fb / hotmart__button-checkout)
-   - bloqueia o navigate padrão (o widget abre popup) */
+/* Flag que indica se o widget da Hotmart já carregou */
+var hotmartReady = false;
+
+/* Configura cada botão [data-checkout]:
+   - href aponta pro checkout (usado como fallback)
+   - classes hotmart-fb / hotmart__button-checkout são interceptadas pelo widget */
 document.querySelectorAll('[data-checkout]').forEach(function(a){
   a.setAttribute('href', CHECKOUT_URL);
   a.classList.add('hotmart-fb','hotmart__button-checkout');
-  a.addEventListener('click', function(e){ e.preventDefault(); });
+
+  /* Fallback: se o widget não carregou (rede ruim, adblock, ...),
+     o clique abre o checkout em nova aba em vez de não fazer nada.
+     Se o widget está pronto, ele intercepta o clique sozinho — não preventDefault aqui. */
+  a.addEventListener('click', function(e){
+    if (!hotmartReady) {
+      window.open(CHECKOUT_URL, '_blank', 'noopener');
+      e.preventDefault();
+    }
+  });
 });
 
-/* Injeta script + CSS do widget da Hotmart */
+/* Carrega script + CSS do widget Hotmart e marca hotmartReady ao terminar. */
 (function loadHotmart(){
   var s = document.createElement('script');
   s.src = 'https://static.hotmart.com/checkout/widget.min.js';
   s.async = true;
+  s.onload = function(){ hotmartReady = true; };
   document.head.appendChild(s);
   var l = document.createElement('link');
   l.rel = 'stylesheet';
