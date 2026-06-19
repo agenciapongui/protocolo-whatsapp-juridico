@@ -229,6 +229,87 @@ footer .disc{max-width:60ch;margin:1.2rem auto 0;font-size:.72rem;line-height:1.
   .sticky{justify-content:center}
   .sticky .cta{width:100%}
 }
+
+/* ---------- mobile tuning (≤640px) ---------- */
+@media (max-width:640px){
+  /* respira menos lateralmente e ganha conteúdo */
+  .wrap{padding:0 18px}
+  section{padding:clamp(48px,11vw,80px) 0}
+
+  /* hero */
+  .hero{padding-top:clamp(20px,4vw,36px);padding-bottom:clamp(28px,5vw,48px)}
+  .hero h1{font-size:clamp(1.95rem,7.5vw,2.4rem);max-width:18ch;line-height:1.1}
+  .hero .subline{font-size:1.05rem;max-width:30ch;margin-top:.7rem}
+  .hero .lead{font-size:.98rem;margin-top:.85rem}
+  .hero .cta{margin-top:1.4rem}
+  .logo-badge{margin-bottom:1rem}
+  .trust-row{gap:.7rem 1.1rem;font-size:.72rem;margin-top:1.3rem}
+
+  /* CTAs */
+  .cta{font-size:.98rem;padding:1.05em 1.7em}
+  .cta-sub{font-size:.78rem;margin-top:.75rem}
+
+  /* problem */
+  .prob-line{padding-left:1.1rem;font-size:1.18rem;margin-top:1.8rem;line-height:1.35}
+
+  /* bubbles */
+  .chat-wrap{margin-top:2rem}
+  .bubble{padding:.9rem 1.05rem;font-size:.93rem;max-width:92%;margin-bottom:.9rem}
+  .bubble .tag{font-size:.58rem;margin-bottom:.3rem}
+
+  /* chapters / chips */
+  .chips{margin-top:2rem;border-radius:12px}
+  .chip{padding:1.2rem 1.15rem}
+  .chip .ttl{font-size:.98rem}
+  .count-line{margin-top:2rem;font-size:1.05rem}
+
+  /* OAB */
+  .oab-grid{margin-top:1.8rem}
+  .oab-card{padding:1.35rem 1.25rem}
+  .oab-card h3{font-size:.92rem;margin-bottom:.9rem}
+  .oab-card li{font-size:.88rem;margin-bottom:.7rem}
+  .golden{padding:1.25rem 1.35rem;margin-top:1.4rem}
+  .golden p{font-size:.96rem}
+
+  /* bonus */
+  .bonus-list{gap:.9rem;margin-top:2rem}
+  .bonus-item{padding:1.15rem 1.15rem;gap:.95rem;border-radius:12px}
+  .bonus-item .bn{width:1.5rem;font-size:1rem}
+  .bonus-item h3{font-size:1rem;margin-bottom:.25rem}
+  .bonus-item p{font-size:.88rem}
+
+  /* for who */
+  .who-grid{margin-top:1.8rem;gap:1.1rem}
+  .who-card{padding:1.4rem 1.3rem}
+  .who-card h3{font-size:1.02rem;margin-bottom:.9rem}
+  .who-card li{font-size:.9rem;margin-bottom:.7rem}
+
+  /* creator */
+  .creator-photo{max-width:240px}
+  .creator-body p{font-size:.97rem}
+
+  /* price */
+  .roi{margin-bottom:2.2rem;font-size:1.2rem}
+  .offer{padding:1.7rem 1.4rem;border-radius:18px}
+  .offer-head{padding-bottom:1.15rem;margin-bottom:1.15rem}
+  .offer-head .name{font-size:1.18rem}
+  .stack{margin-bottom:1.4rem}
+  .stack li{font-size:.9rem;padding:.55rem 0;gap:.7rem}
+  .price-tag{margin-bottom:1.4rem}
+  .price-tag .big{font-size:clamp(2.3rem,11vw,3rem)}
+
+  /* guarantee */
+  .seal{width:64px;height:64px;margin-bottom:1.2rem}
+
+  /* faq */
+  .faq-list{margin-top:1.8rem}
+  .faq summary{padding:1.1rem 0;font-size:1rem;gap:1rem}
+  .faq .ans{font-size:.92rem;padding-bottom:1.2rem}
+
+  /* sticky bar mais compacta */
+  .sticky{padding:.55rem 14px}
+  .sticky .cta{padding:.9em 1.4em;font-size:.95rem}
+}
 </style>
 </head>
 <body>
